@@ -8,8 +8,8 @@ import subprocess
 
 if sys.argv[1:] == '-h' or sys.argv[1:] == "--help":
 	print("")
-	print("[EXAMPLE] ")
-	print("python3 knock.py 10.10.10.3 7000 8000 9000")
+	print(" [EXAMPLE] ")
+	print(" python3 knock.py 10.10.10.3 7000 8000 9000")
 
 
 
@@ -30,36 +30,38 @@ def check(Ip):
     	print("\033[1;32m===========================\033[1;m")
     	print("Starting the Attack")
     	print("\033[1;32m===========================\033[1;m")
-    	subprocess.run(f"nmap -Pn --host_timeout 100 --max-retries {sys.argv[1]} {sys.argv[2:]}", shell=True)
+    	for i in sys.argv[2:]:
+    		subprocess.run(f"nmap -Pn -p {i} {sys.argv[1]}", shell=True)
     	print("")
-    	print("  Done.")
+    	print("[+] Command initiated successfully.")
+    	print("")
 		          
     else:
     	print("")
     	print("Please use a real IP...")
-    	print("[Example] ")
-    	print("python3 knock.py 10.10.10.3 7000 8000 9000")
+    	print(" [Example] ")
+    	print(" python3 knock.py 10.10.10.3 7000 8000 9000")
     	print()
 
 if len(sys.argv) < 2:
-	print("[Example] ")
-	print("python3 knock.py 10.10.10.3 7000 8000 9000")
+	print(" [Example] ")
+	print(" python3 knock.py 10.10.10.3 7000 8000 9000")
 
 
 elif len(sys.argv) == 2 and len(sys.argv[2:]) < 3:
 	print("")
-	print("Please enter three or more ports for a successful port knocking...")
+	print(" Please enter three or more ports for a successful port knocking...")
 	print("")
-	print("[Example] ")
-	print("python3 knock.py 10.10.10.3 7000 8000 9000")
+	print(" [Example] ")
+	print(" python3 knock.py 10.10.10.3 7000 8000 9000")
 	sys.exit()
 
 elif len(sys.argv) == 1:
 	print("")
-	print("Please enter the port numbers to complete the knocking...")
+	print(" Please enter the port numbers to complete the knocking...")
 	print("")
-	print("[Example] ")
-	print("python3 knock.py 10.10.10.3 7000 8000 9000")
+	print(" [Example] ")
+	print(" python3 knock.py 10.10.10.3 7000 8000 9000")
 	sys.exit()
 
 
@@ -72,5 +74,5 @@ elif len(sys.argv) >= 4:
 else:
 	print("Please use the script this way...")
 	print("")
-	print("[Example] ")
-	print("python3 knock.py 10.10.10.3 7000 8000 9000")
+	print(" [Example] ")
+	print(" python3 knock.py 10.10.10.3 7000 8000 9000")
